@@ -1,10 +1,18 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
+using VRTK;
 
 public class Key : MonoBehaviour
 {
+    [Header("Needs to be Assigned From Every Key!")]
     [SerializeField] TextMeshProUGUI inputTextField;
+
+    [Header("Needs to be Assigned ONLY From the Done Key!")]
+    [SerializeField] VRTK_HeightAdjustTeleport heightAdjustTeleport;
+    [SerializeField] GameObject dataCollectionPrefabsParent;
+    [SerializeField] GameObject keyboardParent;
+
 
     private void Start()
     {
@@ -38,6 +46,8 @@ public class Key : MonoBehaviour
     {
         PlayerPrefs.SetString("ID", inputTextField.text);
         inputTextField.text = "";
-        GameObject.Find("Keyboard").SetActive(false);
+        heightAdjustTeleport.GetComponent<VRTK_HeightAdjustTeleport>().enabled = true;
+        dataCollectionPrefabsParent.SetActive(true);
+        keyboardParent.SetActive(false);
     }
 }
