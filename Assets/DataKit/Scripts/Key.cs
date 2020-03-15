@@ -33,4 +33,11 @@ public class Key : MonoBehaviour
     {
         inputTextField.text = "";
     }
+
+    public void onClickDone()
+    {
+        PlayerPrefs.SetString("ID", inputTextField.text);
+        inputTextField.text = "";
+        GameObject.Find("Keyboard").SetActive(false);
+    }
 }
