@@ -1,0 +1,10 @@
+ID,ObjectName,LeftControlPoint,RightControlPoint,PrimaryIndexTrigger,PrimaryHandTrigger,SecondaryIndexTrigger,SecondaryHandTrigger,IsMarked,InterInit,InterEnd,ObjXInit,ObjXEnd,ObjYInit,ObjYEnd,ObjZInit,ObjZEnd
+sample123,Floor,1,0,0,0,0,0,0,15.94848,16.83508,0,0,0,0,0,0
+sample123,Capsule,1,0,0,0,0,0,0,17.19004,18.36603,2.7,2.7,1.5,1.5,2.7,2.7
+sample123,Floor,1,0,0,0,0,0,0,18.4663,19.06769,0,0,0,0,0,0
+sample123,Sphere,1,0,0,0,0,0,0,19.37091,20.35667,-2.7,-2.7,1.5,1.5,2.7,2.7
+sample123,Floor,1,0,0,0,0,0,0,20.42637,21.11123,0,0,0,0,0,0
+sample123,Cube,1,0,0,0,0,0,0,21.41961,22.93111,-2.7,-2.7,1.5,1.5,-2.7,-2.7
+sample123,Floor,1,0,0,0,0,0,0,23.54519,23.88452,0,0,0,0,0,0
+sample123,Sphere,1,0,0,0,0,0,0,24.19766,25.42425,-2.7,-2.7,1.5,1.5,2.7,2.7
+sample123,Sphere,1,0,0,0,0,0,0,0,0,-2.7,-2.7,1.5,1.5,2.7,2.7

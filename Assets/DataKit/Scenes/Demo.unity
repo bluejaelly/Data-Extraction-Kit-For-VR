@@ -249,6 +249,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 491488521}
   keyboardParent: {fileID: 1822713684}
+  dataCollectionPrefabsParent: {fileID: 1744154731}
 --- !u!114 &13389292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &16985320
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +821,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &87106773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1277,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &174945150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1672,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &266142723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3087,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &583260728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,6 +3388,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &592495146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3534,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &593301731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +3964,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &666460376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5051,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &784922961
 GameObject:
   m_ObjectHideFlags: 0
@@ -5342,6 +5352,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &807923280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,6 +5653,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &912187637
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,6 +5954,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!4 &978095370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4693252548441896, guid: eb6748575a8fce346b19dff6cb1471ec,
@@ -6093,6 +6106,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1011102758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6393,6 +6407,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1027929950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,6 +6863,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1167660053
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,6 +7009,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1188138835
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,6 +7155,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1188891841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7283,6 +7301,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1190879297
 GameObject:
   m_ObjectHideFlags: 0
@@ -7367,10 +7386,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1212230822}
   - component: {fileID: 1212230825}
+  - component: {fileID: 1212230827}
   - component: {fileID: 1212230824}
   - component: {fileID: 1212230823}
   - component: {fileID: 1212230826}
   - component: {fileID: 1212230828}
+  - component: {fileID: 1212230829}
   m_Layer: 0
   m_Name: LeftControllerScriptAlias
   m_TagString: Untagged
@@ -7534,6 +7555,25 @@ MonoBehaviour:
   canClickOnHover: 0
   autoActivatingCanvas: {fileID: 0}
   collisionClick: 0
+--- !u!114 &1212230827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212230821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabButton: 7
+  grabPrecognition: 0
+  throwMultiplier: 1
+  createRigidBodyWhenNotTouching: 0
+  controllerAttachPoint: {fileID: 0}
+  controllerEvents: {fileID: 0}
+  interactTouch: {fileID: 0}
 --- !u!114 &1212230828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7556,6 +7596,36 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDestinationMarkerSet:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1212230829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212230821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968b5d420eccb44b9ca55dd8b291b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnControllerStartGrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerGrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerStartUngrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerUngrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabButtonReleased:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1223665142
@@ -7703,6 +7773,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1245468273
 GameObject:
   m_ObjectHideFlags: 0
@@ -7732,7 +7803,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1744154732}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1245468275
 MonoBehaviour:
@@ -7897,6 +7968,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1265930031
 GameObject:
   m_ObjectHideFlags: 0
@@ -8042,6 +8114,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1300426427
 GameObject:
   m_ObjectHideFlags: 0
@@ -8375,6 +8448,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1384183522
 GameObject:
   m_ObjectHideFlags: 0
@@ -8520,6 +8594,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1403768496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,6 +8740,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1437615468
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,6 +8896,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437615468}
   m_CullTransparentMesh: 0
+--- !u!1 &1483804824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483804825}
+  - component: {fileID: 1483804826}
+  m_Layer: 0
+  m_Name: ControllerPositionDataCollectionPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483804825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483804824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1744154732}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1483804826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483804824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8837e1002d6e6444e903e6a37c7c9423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csvName: ControllerPositionData
 --- !u!1 &1507737585
 GameObject:
   m_ObjectHideFlags: 0
@@ -8965,6 +9085,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1519921709
 GameObject:
   m_ObjectHideFlags: 0
@@ -9265,6 +9386,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1546487803
 GameObject:
   m_ObjectHideFlags: 0
@@ -9410,6 +9532,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1559663305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,6 +9678,57 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
+--- !u!1 &1567805830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567805831}
+  - component: {fileID: 1567805832}
+  m_Layer: 0
+  m_Name: ControllerPointerDataCollectionPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567805831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567805830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1744154732}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567805832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567805830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d73da43bd0a48741b4df1751b02224f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csvName: ControllerPointData
+  leftPointer: {fileID: 1212230824}
+  leftBasePointerRenderer: {fileID: 1212230823}
+  leftGrab: {fileID: 1212230827}
+  rightPointer: {fileID: 1999542367}
+  rightBasePointerRenderer: {fileID: 1999542366}
+  rightGrab: {fileID: 1999542372}
 --- !u!1 &1568526247
 GameObject:
   m_ObjectHideFlags: 0
@@ -9700,6 +9874,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1607045976
 GameObject:
   m_ObjectHideFlags: 0
@@ -9845,6 +10020,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1655055817
 GameObject:
   m_ObjectHideFlags: 0
@@ -9990,6 +10166,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1674535815
 GameObject:
   m_ObjectHideFlags: 0
@@ -10428,6 +10605,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1744154731
 GameObject:
   m_ObjectHideFlags: 0
@@ -10443,7 +10621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1744154732
 Transform:
   m_ObjectHideFlags: 0
@@ -10457,6 +10635,8 @@ Transform:
   m_Children:
   - {fileID: 1678752677}
   - {fileID: 1752413671}
+  - {fileID: 1483804825}
+  - {fileID: 1567805831}
   - {fileID: 1245468274}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -11210,6 +11390,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1816078494
 GameObject:
   m_ObjectHideFlags: 0
@@ -11434,7 +11615,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1907467478}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11781,6 +11962,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1001 &1907467469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12287,6 +12469,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1907467469}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1907467478 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4827168130388930155, guid: eb6748575a8fce346b19dff6cb1471ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907467469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1949376976
 GameObject:
   m_ObjectHideFlags: 0
@@ -12432,6 +12620,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &1950941048
 GameObject:
   m_ObjectHideFlags: 0
@@ -13159,6 +13348,8 @@ GameObject:
   - component: {fileID: 1999542366}
   - component: {fileID: 1999542369}
   - component: {fileID: 1999542371}
+  - component: {fileID: 1999542372}
+  - component: {fileID: 1999542370}
   m_Layer: 0
   m_Name: RightControllerScriptAlias
   m_TagString: Untagged
@@ -13322,6 +13513,36 @@ MonoBehaviour:
   canClickOnHover: 0
   autoActivatingCanvas: {fileID: 0}
   collisionClick: 0
+--- !u!114 &1999542370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999542364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968b5d420eccb44b9ca55dd8b291b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnControllerStartGrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerGrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerStartUngrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControllerUngrabInteractableObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabButtonReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1999542371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13346,6 +13567,25 @@ MonoBehaviour:
   OnDestinationMarkerSet:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1999542372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999542364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabButton: 7
+  grabPrecognition: 0
+  throwMultiplier: 1
+  createRigidBodyWhenNotTouching: 0
+  controllerAttachPoint: {fileID: 0}
+  controllerEvents: {fileID: 0}
+  interactTouch: {fileID: 0}
 --- !u!1 &2019678588
 GameObject:
   m_ObjectHideFlags: 0
@@ -13491,6 +13731,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &2036762848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13791,6 +14032,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &2069092389
 GameObject:
   m_ObjectHideFlags: 0
@@ -13936,6 +14178,7 @@ MonoBehaviour:
   inputTextField: {fileID: 1812992047}
   heightAdjustTeleport: {fileID: 0}
   keyboardParent: {fileID: 0}
+  dataCollectionPrefabsParent: {fileID: 0}
 --- !u!1 &2102550722
 GameObject:
   m_ObjectHideFlags: 0
