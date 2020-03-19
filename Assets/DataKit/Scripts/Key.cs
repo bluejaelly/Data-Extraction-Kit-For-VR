@@ -10,7 +10,6 @@ public class Key : MonoBehaviour
 
     [Header("Needs to be Assigned ONLY From the Done Key!")]
     [SerializeField] VRTK_HeightAdjustTeleport heightAdjustTeleport;
-    [SerializeField] GameObject dataCollectionPrefabsParent;
     [SerializeField] GameObject keyboardParent;
 
 
@@ -21,7 +20,7 @@ public class Key : MonoBehaviour
 
     public void onClickKey()
     {
-        inputTextField.text += gameObject.name;
+        inputTextField.text += (gameObject.name).ToLower();
     }
 
     public void onClickDelete()
@@ -47,7 +46,6 @@ public class Key : MonoBehaviour
         PlayerPrefs.SetString("ID", inputTextField.text);
         inputTextField.text = "";
         heightAdjustTeleport.GetComponent<VRTK_HeightAdjustTeleport>().enabled = true;
-        dataCollectionPrefabsParent.SetActive(true);
         keyboardParent.SetActive(false);
     }
 }

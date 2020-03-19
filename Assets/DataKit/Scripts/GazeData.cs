@@ -29,8 +29,6 @@ public class GazeData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
-        operation = Operation.Include;
         participantID = PlayerPrefs.GetString("ID", "INVALID");
         startWrite = false;
         startInteraction = 0f;
@@ -48,8 +46,8 @@ public class GazeData : MonoBehaviour
 
     private void enterGaze(object sender, DestinationMarkerEventArgs e)
     {
-        print("Started enter gaze!");
         startInteraction = Time.time;
+
         if (operation == Operation.Include)
         {
             if (tags.Contains(e.target.tag))
@@ -67,7 +65,6 @@ public class GazeData : MonoBehaviour
 
     private void exitGaze(object sender, DestinationMarkerEventArgs e)
     {
-        print("Started exit gaze!");
         endInteraction = Time.time;
         string filePath = GenerateFilePath();
 
@@ -80,10 +77,9 @@ public class GazeData : MonoBehaviour
         }
         else
         {
-            if (!tags.Contains(e.target.tag) || e.target.tag == "Untagged")
+            if (!tags.Contains(e.target.tag))
             {
                 addRecord(participantID, interactedObject, startInteraction, endInteraction, filePath);
-                Debug.Log("Writing stuff!");
             }
         }
     }
@@ -94,7 +90,7 @@ public class GazeData : MonoBehaviour
         {
             if (!startWrite)
             {
-                using (StreamWriter file = new StreamWriter(@filePath, true))
+                using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
                     file.WriteLine(ID + "," + objectName + "," + start + "," + end);
                 }
@@ -102,7 +98,7 @@ public class GazeData : MonoBehaviour
             }
             else
             {
-                using (StreamWriter file = new StreamWriter(@filePath, false))
+                using (StreamWriter file = new StreamWriter(@filePath, true))
                 {
                     file.WriteLine(ID + "," + objectName + "," + start + "," + end);
                 }
@@ -116,6 +112,6 @@ public class GazeData : MonoBehaviour
 
     private string GenerateFilePath()
     {
-        return Application.dataPath + "/" + csvName + ".csv";
+        return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }
 }
