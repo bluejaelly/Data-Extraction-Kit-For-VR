@@ -92,7 +92,7 @@ public class GazeData : MonoBehaviour
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
-                    file.WriteLine(ID + "," + objectName + "," + start + "," + end);
+                    file.WriteLine("ID" + "," + "ObjectName" + "," + "Start" + "," + "End");
                 }
                 startWrite = true;
             }
