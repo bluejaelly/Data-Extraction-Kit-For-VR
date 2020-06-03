@@ -1,0 +1,3 @@
+This project is about visualizing data from a virtual reality simulation. There are many data that can come out of a virtual reality application. 
+For example, a player's position can be recorded as a csv file. I gathered a few things that are common in most VR applications such as controller grab, controller point, and more.
+I then visualized these datasets using python and jupyter notebook. Take a look!
