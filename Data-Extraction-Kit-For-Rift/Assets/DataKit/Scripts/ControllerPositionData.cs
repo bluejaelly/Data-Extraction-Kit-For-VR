@@ -20,7 +20,7 @@ public class ControllerPositionData : MonoBehaviour
     private float timeStamp;
     // private int index;
 
-    private bool startWriting;
+    private bool startNewWrite;
 
     private string participantID;
 
@@ -40,7 +40,7 @@ public class ControllerPositionData : MonoBehaviour
         dropRate = 3;
 
         filePath = GetFilePath();
-        startWriting = true;
+        startNewWrite = true;
     }
 
     void Update()
@@ -111,14 +111,14 @@ public class ControllerPositionData : MonoBehaviour
         print("Writing to file");
         try
         {
-            if (startWriting)
+            if (startNewWrite)
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
                     file.WriteLine("ID" + "," + "Hand" + "," + "XPos" + "," + "YPos" +
                         "," + "ZPos" + "," + "Time");
                 }
-                startWriting = false;
+                startNewWrite = false;
             }
             else
             {
@@ -135,7 +135,7 @@ public class ControllerPositionData : MonoBehaviour
         }
     }
 
-    string GetFilePath()
+    public string GetFilePath()
     {
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }

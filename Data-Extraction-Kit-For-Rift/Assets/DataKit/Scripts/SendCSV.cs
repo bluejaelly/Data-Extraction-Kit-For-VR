@@ -7,6 +7,7 @@ using System.Net.Mime;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SendCSV : MonoBehaviour
 {
@@ -19,8 +20,23 @@ public class SendCSV : MonoBehaviour
     [SerializeField] string emailTitle;
     [SerializeField] string emailBody;
 
-    [Header("Files to Send")]
-    [SerializeField] List<string> fileNames;
+    [Header("File Generators")]
+    [SerializeField] GazeData gazeData;
+    [SerializeField] PositionData positionData;
+    [SerializeField] ControllerPositionData controllerPositionData;
+    [SerializeField] ControllerPointerData controllerPointerData;
+
+    private List<string> fileNames;
+
+    private void Start()
+    {
+        fileNames = new List<string>();
+
+        fileNames.Add(gazeData.GetFilePath());
+        fileNames.Add(positionData.GetFilePath());
+        fileNames.Add(controllerPositionData.GetFilePath());
+        fileNames.Add(controllerPointerData.GetFilePath());
+    }
 
     public void OnApplicationQuit()
     {
@@ -28,12 +44,14 @@ public class SendCSV : MonoBehaviour
     }
     private void SendSmtpMail()
     {
+        print("Sending Mail");
         MailMessage mail = new MailMessage();
         mail.From = new MailAddress(fromAddress);
         mail.To.Add(toAddress);
         mail.Subject = emailTitle;
         mail.Body = emailBody;
 
+        print("Attaching Files");
         foreach (string filePath in fileNames)
         {
             Attachment data = new Attachment(filePath, MediaTypeNames.Application.Octet);
@@ -45,6 +63,7 @@ public class SendCSV : MonoBehaviour
             // Add the file attachment to this email message.
             mail.Attachments.Add(data);
         }
+        print("Attached Files");
 
         // you can use others too.
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
@@ -55,13 +74,15 @@ public class SendCSV : MonoBehaviour
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
 
+        print("Attemping to Send Files");
         try
         {
             smtpServer.Send(mail);
-            Debug.Log("Email");
+            Debug.Log("Email Sent!");
         }
         catch (Exception ex)
         {
+            Debug.Log("Something went wrong!");
             Debug.Log(ex.ToString());
         }
     }

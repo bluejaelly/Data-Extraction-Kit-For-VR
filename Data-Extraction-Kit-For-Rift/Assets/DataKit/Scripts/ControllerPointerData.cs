@@ -41,7 +41,7 @@ public class ControllerPointerData : MonoBehaviour
     private string objectInteractedLeft;
     private string objectInteractedRight;
     private string participantID;
-    private bool startWriting;
+    private bool startNewWrite;
 
     private string filePath;
 
@@ -72,7 +72,7 @@ public class ControllerPointerData : MonoBehaviour
         objectInteractedLeft = "";
         objectInteractedRight = "";
         participantID = PlayerPrefs.GetString("ID", "INVALID");
-        startWriting = true;
+        startNewWrite = true;
 
         filePath = GetFilePath();
 
@@ -239,13 +239,13 @@ public class ControllerPointerData : MonoBehaviour
         print("Writing to file");
         try
         {
-            if (startWriting)
+            if (startNewWrite)
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
                     file.WriteLine("ID,ObjectName,LeftControlPoint,RightControlPoint,PrimaryIndexTrigger,PrimaryHandTrigger,SecondaryIndexTrigger,SecondaryHandTrigger,IsMarked,InterInit,InterEnd,ObjXInit,ObjXEnd,ObjYInit,ObjYEnd,ObjZInit,ObjZEnd");
                 }
-                startWriting = false;
+                startNewWrite = false;
             }
             else
             {
@@ -264,7 +264,7 @@ public class ControllerPointerData : MonoBehaviour
         }
     }
 
-    string GetFilePath()
+    public string GetFilePath()
     {
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }

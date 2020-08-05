@@ -24,13 +24,13 @@ public class GazeData : MonoBehaviour
     private float startInteraction;
     private float endInteraction;
     private string interactedObject;
-    private bool startWrite;
+    private bool startNewWrite;
 
     // Start is called before the first frame update
     void Start()
     {
         participantID = PlayerPrefs.GetString("ID", "INVALID");
-        startWrite = false;
+        startNewWrite = true;
         startInteraction = 0f;
         endInteraction = 0f;
 
@@ -66,7 +66,7 @@ public class GazeData : MonoBehaviour
     private void exitGaze(object sender, DestinationMarkerEventArgs e)
     {
         endInteraction = Time.time;
-        string filePath = GenerateFilePath();
+        string filePath = GetFilePath();
 
         if (operation == Operation.Include)
         {
@@ -88,13 +88,13 @@ public class GazeData : MonoBehaviour
     {
         try
         {
-            if (!startWrite)
+            if (startNewWrite)
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
                     file.WriteLine("ID" + "," + "ObjectName" + "," + "Start" + "," + "End");
                 }
-                startWrite = true;
+                startNewWrite = false;
             }
             else
             {
@@ -110,7 +110,7 @@ public class GazeData : MonoBehaviour
         }
     }
 
-    private string GenerateFilePath()
+    public string GetFilePath()
     {
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }

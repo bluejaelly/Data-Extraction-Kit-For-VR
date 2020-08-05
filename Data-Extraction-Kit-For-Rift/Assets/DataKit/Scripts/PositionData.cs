@@ -12,15 +12,18 @@ public class PositionData : MonoBehaviour
     [Header("OVRCameraRig")]
     [SerializeField] GameObject player;
 
+    [Header("Record Interval")]
+    [SerializeField] float recordEverySeconds;
+
     private string participantID;
     private string filePath;
-    private bool startWriting;
+    private bool startNewWrite;
     private bool canRecord;
 
     private void Start()
     {
         participantID = PlayerPrefs.GetString("ID", "INVALID");
-        startWriting = false;
+        startNewWrite = true;
         canRecord = true;
         filePath = GetFilePath();
     }
@@ -39,13 +42,13 @@ public class PositionData : MonoBehaviour
         print("Writing to file");
         try
         {
-            if (!startWriting)
+            if (startNewWrite)
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
                     file.WriteLine("UserID" + "," + "Time" + "," + "XPos" + "," + "ZPos");
                 }
-                startWriting = true;
+                startNewWrite = false;
             }
             else
             {
@@ -64,11 +67,11 @@ public class PositionData : MonoBehaviour
     private IEnumerator delayRecord()
     {
         canRecord = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(recordEverySeconds);
         canRecord = true;
     }
 
-    string GetFilePath()
+    public string GetFilePath()
     {
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }
