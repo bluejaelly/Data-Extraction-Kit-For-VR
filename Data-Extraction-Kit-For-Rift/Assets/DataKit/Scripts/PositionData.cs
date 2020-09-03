@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class PositionData : MonoBehaviour
 {
-    [Header("CSV File Name")]
+    [Header("Name for the CSV File")]
     [SerializeField] string csvName;
 
-    [Header("OVRCameraRig")]
+    [Header("Oculus Components")]
     [SerializeField] GameObject player;
 
-    [Header("Record Interval")]
+    [Header("Recording Parameters")]
     [SerializeField] float recordEverySeconds;
 
     private string participantID;
@@ -37,16 +37,19 @@ public class PositionData : MonoBehaviour
         }
     }
 
-    private void addRecord(string ID, float time, float x, float z, string filePath)
+    private void addRecord(string ID, 
+                           float time, 
+                           float x, 
+                           float z, 
+                           string filePath)
     {
-        print("Writing to file");
         try
         {
             if (startNewWrite)
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
-                    file.WriteLine("UserID" + "," + "Time" + "," + "XPos" + "," + "ZPos");
+                    file.WriteLine("UserID,Time,XPos,ZPos");
                 }
                 startNewWrite = false;
             }
@@ -54,13 +57,16 @@ public class PositionData : MonoBehaviour
             {
                 using (StreamWriter file = new StreamWriter(@filePath, true))
                 {
-                    file.WriteLine(ID + "," + time + "," + x + "," + z);
+                    file.WriteLine(ID + "," + 
+                                   time + "," + 
+                                   x + "," + 
+                                   z);
                 }
             }
         }
         catch (Exception ex)
         {
-            Debug.Log("Something went wrong! Error: " + ex.Message);
+            print("Something went wrong! Error: " + ex.Message);
         }
     }
 
@@ -76,3 +82,5 @@ public class PositionData : MonoBehaviour
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }
 }
+
+// End of File.

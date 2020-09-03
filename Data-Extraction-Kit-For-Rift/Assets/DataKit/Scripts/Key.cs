@@ -1,18 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
-using VRTK;
 
 public class Key : MonoBehaviour
 {
-    [Header("Needs to be Assigned From Every Key!")]
     [SerializeField] TextMeshProUGUI inputTextField;
-
-    [Header("Needs to be Assigned ONLY From the Done Key!")]
-    [SerializeField] VRTK_HeightAdjustTeleport heightAdjustTeleport;
-    [SerializeField] GameObject keyboardParent;
-    [SerializeField] GameObject dataCollectionPrefabsParent;
-
 
     private void Start()
     {
@@ -46,8 +41,8 @@ public class Key : MonoBehaviour
     {
         PlayerPrefs.SetString("ID", inputTextField.text);
         inputTextField.text = "";
-        heightAdjustTeleport.GetComponent<VRTK_HeightAdjustTeleport>().enabled = true;
-        dataCollectionPrefabsParent.SetActive(true);
-        keyboardParent.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 }
+
+// End of File.

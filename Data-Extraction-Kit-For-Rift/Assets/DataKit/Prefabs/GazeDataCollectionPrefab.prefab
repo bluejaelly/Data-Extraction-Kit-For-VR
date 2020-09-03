@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4984276574718371349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4984276574718371348}
+  - component: {fileID: 4984276574718371352}
+  - component: {fileID: 4984276574718371353}
+  - component: {fileID: 4984276574718371350}
+  - component: {fileID: 4984276574718371351}
+  m_Layer: 0
+  m_Name: GazeDataCollectionPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4984276574718371348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984276574718371349}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4984276574718371352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984276574718371349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5040c2eaa9ff147b80ded004191c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToFollow: {fileID: 0}
+  gameObjectToChange: {fileID: 4984276574718371349}
+  followsPosition: 1
+  smoothsPosition: 0
+  maxAllowedPerFrameDistanceDifference: 0.003
+  followsRotation: 1
+  smoothsRotation: 0
+  maxAllowedPerFrameAngleDifference: 1.5
+  followsScale: 1
+  smoothsScale: 0
+  maxAllowedPerFrameSizeDifference: 0.003
+  _moment: 3
+--- !u!114 &4984276574718371353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984276574718371349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec704cceb26f6f49b6c900fc83d8d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTeleport: 1
+  targetListPolicy: {fileID: 0}
+  pointerRenderer: {fileID: 4984276574718371350}
+  activationButton: 0
+  holdButtonToActivate: 0
+  activateOnEnable: 1
+  activationDelay: 0
+  selectionButton: 0
+  selectOnPress: 1
+  selectionDelay: 0
+  selectAfterHoverDuration: 0
+  interactWithObjects: 0
+  grabToPointerTip: 0
+  attachedTo: {fileID: 0}
+  controllerEvents: {fileID: 0}
+  interactUse: {fileID: 0}
+  customOrigin: {fileID: 0}
+  controller: {fileID: 0}
+--- !u!114 &4984276574718371350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984276574718371349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc65878c7102524bb8c2bcfbefff497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playareaCursor: {fileID: 0}
+  directionIndicator: {fileID: 0}
+  customRaycast: {fileID: 0}
+  pointerOriginSmoothingSettings:
+    smoothsPosition: 0
+    maxAllowedPerFrameDistanceDifference: 0.003
+    smoothsRotation: 0
+    maxAllowedPerFrameAngleDifference: 1.5
+  validCollisionColor: {r: 1, g: 1, b: 1, a: 0}
+  invalidCollisionColor: {r: 1, g: 1, b: 1, a: 0}
+  tracerVisibility: 2
+  cursorVisibility: 2
+  maximumLength: 100
+  scaleFactor: 0.002
+  cursorScaleMultiplier: 25
+  cursorMatchTargetRotation: 0
+  cursorDistanceRescale: 0
+  maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
+  customTracer: {fileID: 0}
+  customCursor: {fileID: 0}
+--- !u!114 &4984276574718371351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984276574718371349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b83f19fa9fa66c42a1f2135716db720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 4984276574718371353}
+  pointerRenderer: {fileID: 4984276574718371350}
+  csvName: Gaze
+  operation: 1
+  tags:
+  - Floor

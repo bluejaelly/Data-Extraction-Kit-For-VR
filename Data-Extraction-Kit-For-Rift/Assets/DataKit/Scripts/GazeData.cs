@@ -1,30 +1,25 @@
 ﻿using System;
-//using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using VRTK;
 
-public enum Operation { Include, Ignore };
-
 public class GazeData : MonoBehaviour
 {
-    [Header("VRTK")]
-    [SerializeField] VRTK_Pointer pointer;
-    [SerializeField] VRTK_BasePointerRenderer pointerRenderer;
-
-    [Header("Name for the CSV File.")]
+    [Header("Name for the CSV File")]
     [SerializeField] string csvName;
 
-    [Header("Objects to Track with Gaze.")]
-    [SerializeField] Operation operation;
-    [SerializeField] List<string> tags;
+    [Header("VRTK Components")]
+    [SerializeField] VRTK_Pointer pointer;
+    [SerializeField] VRTK_BasePointerRenderer pointerRenderer;
 
     private string participantID;
     private float startInteraction;
     private float endInteraction;
     private string interactedObject;
     private bool startNewWrite;
+    private string filePath;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +28,7 @@ public class GazeData : MonoBehaviour
         startNewWrite = true;
         startInteraction = 0f;
         endInteraction = 0f;
+        filePath = GetFilePath();
 
         if (pointer != null)
         {
@@ -47,44 +43,24 @@ public class GazeData : MonoBehaviour
     private void enterGaze(object sender, DestinationMarkerEventArgs e)
     {
         startInteraction = Time.time;
-
-        if (operation == Operation.Include)
-        {
-            if (tags.Contains(e.target.tag))
-            {
-                interactedObject = e.target.name;
-            }
-        } else
-        {
-            if (!tags.Contains(e.target.tag))
-            {
-                interactedObject = e.target.name;
-            }
-        }
+        interactedObject = e.target.name;
     }
 
     private void exitGaze(object sender, DestinationMarkerEventArgs e)
     {
         endInteraction = Time.time;
-        string filePath = GetFilePath();
-
-        if (operation == Operation.Include)
-        {
-            if (tags.Contains(e.target.tag))
-            {
-                addRecord(participantID, interactedObject, startInteraction, endInteraction, filePath);
-            }
-        }
-        else
-        {
-            if (!tags.Contains(e.target.tag))
-            {
-                addRecord(participantID, interactedObject, startInteraction, endInteraction, filePath);
-            }
-        }
+        addRecord(participantID, 
+                  interactedObject, 
+                  startInteraction, 
+                  endInteraction, 
+                  filePath);
     }
 
-    private void addRecord(string ID, string objectName, float start, float end, string filePath) 
+    private void addRecord(string ID, 
+                           string objectName, 
+                           float startTime, 
+                           float endTime, 
+                           string filePath) 
     {
         try
         {
@@ -92,7 +68,7 @@ public class GazeData : MonoBehaviour
             {
                 using (StreamWriter file = new StreamWriter(@filePath, false))
                 {
-                    file.WriteLine("ID" + "," + "ObjectName" + "," + "Start" + "," + "End");
+                    file.WriteLine("ID,ObjectName,StartTime,EndTime");
                 }
                 startNewWrite = false;
             }
@@ -100,13 +76,16 @@ public class GazeData : MonoBehaviour
             {
                 using (StreamWriter file = new StreamWriter(@filePath, true))
                 {
-                    file.WriteLine(ID + "," + objectName + "," + start + "," + end);
+                    file.WriteLine(ID + "," + 
+                                   objectName + "," +
+                                   startTime + "," +
+                                   endTime);
                 }
             }
         } 
-        catch (Exception e)
+        catch (Exception ex)
         {
-            throw new ApplicationException("Error: ", e);
+            print("Something went wrong! Error: " + ex.Message);
         }
     }
 
@@ -115,3 +94,5 @@ public class GazeData : MonoBehaviour
         return Application.dataPath + "/" + participantID + "_" + csvName + ".csv";
     }
 }
+
+// End of File.

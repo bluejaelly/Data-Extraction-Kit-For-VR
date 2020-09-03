@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/DataKit/Scenes/Demo.unity
+- path: Assets/DataKit/Scenes/Demo_ID.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

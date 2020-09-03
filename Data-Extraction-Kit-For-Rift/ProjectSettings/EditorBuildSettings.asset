@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/VRTK/LegacyExampleFiles/005_Controller_BasicObjectGrabbing.unity
-    guid: 05a9fcd8c10d7b74da0aab19606660f4
+    path: Assets/DataKit/Scenes/Demo_ID.unity
+    guid: 9ac4a01e1061ea544bc780e53d207598
+  - enabled: 1
+    path: Assets/DataKit/Scenes/Demo_Simulation.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
