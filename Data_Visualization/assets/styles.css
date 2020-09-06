@@ -1,0 +1,99 @@
+.js-plotly-plot .plotly .modebar {
+    padding-top: 5%;
+    /* margin-right: 3.5%; */
+}
+
+body {
+    background-color: #ffffff;
+    margin: 5%;
+}
+
+.column,
+.columns {
+    margin-left: 0.5%;
+}
+
+.pretty_container {
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    margin: 10px;
+    padding: 15px;
+    position: relative;
+}
+
+.flex-display {
+    display: flex;
+}
+
+.custom-tabs-container {
+    width: 100%;
+}
+
+.custom-tabs {
+    border-top-left-radius: 3px;
+    /* background-color: #000000; */
+    /* padding: 0px 24px; */
+    /* border-bottom: 1px solid #e6e6e6; */
+    margin-right: 1%;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+}
+
+.custom-tab {
+    color: #000000;
+    /* border-top-left-radius: 3px;
+    border-top-right-radius: 3px; */
+    border-top: 3px solid transparent !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    background-color: #e6e6e6;
+    font-family: "system-ui";
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+    width: 33%;
+}
+
+.custom-tab--selected {
+    color: black;
+    /* box-shadow: 1px 1px 0px white; */
+    border-left: 1px solid #e6e6e6 !important;
+    border-right: 1px solid #e6e6e6 !important;
+    /* border-top: 3px solid #e36209 !important; */
+}
+
+#header {
+    align-items: center;
+    background-color: #ffffff;
+}
+
+#title {
+    text-align: center;
+}
+
+#first-left-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#first-right-column {
+    display: flex;
+}
+
+#second-left-column {
+    display: flex;
+}
+
+#second-right-column {
+    display: flex;
+}
+
+#tabs {
+    display: flex;
+    /* margin-right: 1.9%; */
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
