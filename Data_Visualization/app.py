@@ -21,29 +21,8 @@ import io
 # Graph Modules
 from data_vis import VisGraphs
 
-controller_csv = 'test123_ControllerPointData.csv'
-grab_csv = 'test123_ControllerGrabData.csv'
-gaze_csv = 'test123_GazeData.csv'
-vis_graph = VisGraphs(controller_csv, grab_csv, gaze_csv)
-l_controller_point_avg = vis_graph.plot_controller_point_avg('LeftControllerPoint')
-r_controller_point_avg = vis_graph.plot_controller_point_avg('RightControllerPoint')
-l_controller_point_total = vis_graph.plot_controller_point_total('LeftControllerPoint')
-r_controller_point_total = vis_graph.plot_controller_point_total('RightControllerPoint')
-l_controller_point_box = vis_graph.plot_box_controller_point('LeftControllerPoint')
-r_controller_point_box = vis_graph.plot_box_controller_point('RightControllerPoint')
-both_controller_point_avg, both_controller_point_total, both_controller_point_box = vis_graph.plot_both_controller_point()
 
-l_grab_avg = vis_graph.plot_controller_grab_avg('LeftControllerGrab')
-r_grab_avg = vis_graph.plot_controller_grab_avg('RightControllerGrab')
-l_grab_total = vis_graph.plot_controller_grab_total('LeftControllerGrab')
-r_grab_total = vis_graph.plot_controller_grab_total('RightControllerGrab')
-l_grab_box = vis_graph.plot_box_controller_grab('LeftControllerGrab')
-r_grab_box = vis_graph.plot_box_controller_grab('RightControllerGrab')
-b_grab_avg, b_grab_total, b_grab_box = vis_graph.plot_both_controller_grab()
 
-gaze_avg = vis_graph.plot_gaze_avg()
-gaze_total = vis_graph.plot_gaze_total()
-gaze_box = vis_graph.plot_box_gaze()
 
 app = dash.Dash(
     name = __name__,
@@ -53,8 +32,7 @@ app = dash.Dash(
 
 server = app.server
 
-# Import temp datasets
-head_data, point_data, grab_data, pos_data = importAllDatasets(os.getcwd() + '/*')
+DATA_DIRECTORY = os.getcwd() + '/data'
 
 ####################
 # helper functions #
@@ -68,42 +46,44 @@ def findIndex(ref_list, keyword):
         return None
 
 
-def importAllDatasets(directory):
-    """
-    A helper function to import all the datasets for the project from the input directory parameter.
+def importAllDatasets(directory, userID):
 
-    Parameter
-    _________
-    directory : str
-        directory to the datasets
+    if not userID: return None, None, None, None
+    user_dir = '{}/{}'.format(directory, userID)
+    dir_list = glob.glob(user_dir + '/*')
+    gaze_dir = user_dir + '/{}_GazeData.csv'.format(userID)
+    point_dir = user_dir + '/{}_ControllerPointData.csv'.format(userID)
+    grab_dir = user_dir + '/{}_ControllerGrabData.csv'.format(userID)
+    pos_dir = user_dir + '/{}_PlayerPositionData.csv'.format(userID)
 
-    Returns
-    _______
-    head_data: Pandas Dataframe
-        A dataframe of a head gaze data
+    gaze_data = pd.read_csv(gaze_dir) if gaze_dir in dir_list else None
+    point_data = pd.read_csv(point_dir) if point_dir in dir_list else None
+    grab_data = pd.read_csv(grab_dir) if grab_dir in dir_list else None
+    pos_data = pd.read_csv(pos_dir) if pos_dir in dir_list else None
 
-    point_data: Pandas Dataframe
-        A dataframe of a controller point data
-
-    grab_data: Pandas Dataframe
-        A dataframe of a controller grab data
-
-    pos_data: Pandas Dataframe
-        A dataframe of a player position data
-    
-    """
-    head_index = findIndex(temp_list, "Gaze")
-    point_index = findIndex(temp_list, "Point")
-    grab_index = findIndex(temp_list, "Grab")
-    pos_index = findIndex(temp_list, "Position")
-
-    head_data = pd.read_csv(temp_list[head_index]) if head_index != None else None
-    point_data = pd.read_csv(temp_list[point_index]) if point_index != None else None
-    grab_data = pd.read_csv(temp_list[grab_index]) if grab_index != None else None
-    pos_data = pd.read_csv(temp_list[pos_index]) if pos_index != None else None
+    return gaze_data, point_data, grab_data, pos_data
 
 
-    return head_data, point_data, grab_data, pos_data
+def getUserIDList():
+    user_dir_list = glob.glob(DATA_DIRECTORY + '/*')
+    user_dir_list = [i.rsplit('/', 1)[-1] for i in user_dir_list]
+    return [{'label': s, 'value': s} for s in user_dir_list]
+
+
+# import all datasets
+
+gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, None)
+user_id_list = getUserIDList()
+vis_graph = VisGraphs(None, point_data, grab_data, gaze_data, pos_data)
+
+l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box = None, None, None, None, None, None
+both_controller_point_avg, both_controller_point_total, both_controller_point_box = None, None, None
+
+l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box  = None, None, None, None, None, None
+
+b_grab_avg, b_grab_total, b_grab_box = None, None, None
+
+gaze_avg, gaze_total, gaze_box = None, None, None
 
 
 app.layout = html.Div(
@@ -124,6 +104,22 @@ app.layout = html.Div(
                     style={"marginBottom": "25px"}
                 ),
 
+                html.Div(
+                    [                        
+                        dcc.Dropdown(
+                            id = "user_id",
+                            multi = False,
+                            className="dcc_control",
+                            style={"marginBottom": "25px", "marginLeft": "5px", "marginRight": "20px"},
+                            options=user_id_list
+                        ),
+                        html.Div(
+                            id = "cur_user_id",
+                            style={"display":"none"}
+                        )
+                    ],
+                    className = "row flex_display",
+                ),
                 # Tabs(project selection)
                 html.Div(
                     [
@@ -341,6 +337,33 @@ app.layout = html.Div(
     ]
 )
 
+@app.callback(Output("cur_user_id", "children"), [Input("user_id", "value")])
+def updateCurrentUserID(user_id):
+    print(user_id)
+    gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, user_id)
+    vis_graph.update_data(user_id, point_data, grab_data, gaze_data, pos_data)
 
-if __name__ == "__main__":
+    l_controller_point_avg = vis_graph.plot_controller_point_avg('LeftControllerPoint')
+    r_controller_point_avg = vis_graph.plot_controller_point_avg('RightControllerPoint')
+    l_controller_point_total = vis_graph.plot_controller_point_total('LeftControllerPoint')
+    r_controller_point_total = vis_graph.plot_controller_point_total('RightControllerPoint')
+    l_controller_point_box = vis_graph.plot_box_controller_point('LeftControllerPoint')
+    r_controller_point_box = vis_graph.plot_box_controller_point('RightControllerPoint')
+    both_controller_point_avg, both_controller_point_total, both_controller_point_box = vis_graph.plot_both_controller_point()
+
+    l_grab_avg = vis_graph.plot_controller_grab_avg('LeftControllerGrab')
+    r_grab_avg = vis_graph.plot_controller_grab_avg('RightControllerGrab')
+    l_grab_total = vis_graph.plot_controller_grab_total('LeftControllerGrab')
+    r_grab_total = vis_graph.plot_controller_grab_total('RightControllerGrab')
+    l_grab_box = vis_graph.plot_box_controller_grab('LeftControllerGrab')
+    r_grab_box = vis_graph.plot_box_controller_grab('RightControllerGrab')
+    b_grab_avg, b_grab_total, b_grab_box = vis_graph.plot_both_controller_grab()
+
+    gaze_avg = vis_graph.plot_gaze_avg()
+    gaze_total = vis_graph.plot_gaze_total()
+    gaze_box = vis_graph.plot_box_gaze()
+
+    return user_id
+
+if __name__ == "__main__": 
     app.run_server(debug = True)

@@ -3,20 +3,37 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 class VisGraphs:
-    def __init__(self, controller_csv, grab_csv, gaze_csv):
-        self.controller_data = pd.read_csv(controller_csv)
+    def __init__(self, user_id, controller_csv, grab_csv, gaze_csv, pos_csv):
+
+        self.user_id = user_id
+
+        self.controller_data = controller_csv
+        self.grab_data = grab_csv
+        self.gaze_data = gaze_csv
+        self.pos_data = pos_csv
+        
         self.controllers_point_data = {}
         self.controllers_dicts = {}
-
-        self.grab_data = pd.read_csv(grab_csv)
         self.grab_dicts = {}
-
-        self.gaze_data = pd.read_csv(gaze_csv)
         self.gaze_dict = {}
+        
+    
 
         self.analyze_data()
 
+
+    def update_data(self, user_id, control, grab, gaze, pos):
+        self.user_id = user_id
+        self.controller_data = control
+        self.grab_data = grab
+        self.gaze_data = gaze
+        self.pos_data = pos
+        self.analyze_data()
+
     def analyze_controller(self, controller_name):
+        
+        if not self.user_id: return
+
         objects = self.controller_data["ObjectName"]
         inter_init = self.controller_data["StartTime"]
         inter_end = self.controller_data["EndTime"]
@@ -68,6 +85,9 @@ class VisGraphs:
                 [obj_key] / self.controllers_dicts[controller_name]['total_count'][obj_key]
 
     def analyze_grab(self, controller_name):
+
+        if not self.user_id: return
+
         self.grab_data['InterTime'] = self.grab_data['EndTime'] - self.grab_data['StartTime']
         grab_df = self.grab_data.loc[self.grab_data[controller_name] == 1]
 
@@ -88,6 +108,9 @@ class VisGraphs:
             self.grab_dicts[controller_name]['avg_look_time'][obj] = total_time / total_count
 
     def analyze_gaze(self):
+
+        if not self.user_id: return
+
         self.gaze_data['InterTime'] = self.gaze_data['EndTime'] - self.gaze_data['StartTime']
         gaze_df = self.gaze_data
 
@@ -108,6 +131,9 @@ class VisGraphs:
             self.gaze_dict['avg_look_time'][obj] = total_time / total_count
 
     def analyze_data(self):
+
+        if not self.user_id: return
+
         self.analyze_controller("LeftControllerPoint")
         self.analyze_controller("RightControllerPoint")
 
@@ -117,6 +143,8 @@ class VisGraphs:
         self.analyze_gaze()
     
     def plot_controller_point_avg(self, controller_name):
+
+        if not self.user_id: return None
         label = list(self.controllers_dicts[controller_name]['total_count'].keys())
         data = list(self.controllers_dicts[controller_name]['avg_look_time'].values())
 
@@ -128,6 +156,9 @@ class VisGraphs:
         return fig
 
     def plot_controller_point_total(self, controller_name):
+
+        if not self.user_id: return None
+
         label = list(self.controllers_dicts[controller_name]['total_count'].keys())
         time_data = list(self.controllers_dicts[controller_name]['total_length_of_time'].values())
         count_data = list(self.controllers_dicts[controller_name]['total_count'].values())
@@ -144,6 +175,10 @@ class VisGraphs:
         return fig
 
     def plot_box_controller_point(self, controller_name):
+
+        if not self.user_id: return None
+
+
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
         for _, (obj, time_arr) in enumerate(self.controllers_dicts[controller_name]['all_look_times'].items()):
             for time in time_arr:
@@ -156,6 +191,10 @@ class VisGraphs:
         return fig
 
     def plot_both_controller_point(self):
+
+        if not self.user_id: return None, None, None
+
+
         avg_time = list(self.controllers_dicts['LeftControllerPoint']['avg_look_time'].values())
         avg_time.extend(list(self.controllers_dicts['RightControllerPoint']['avg_look_time'].values()))
 
@@ -193,6 +232,9 @@ class VisGraphs:
         return avg_fig, total_fig, box_fig
 
     def plot_controller_grab_avg(self, controller_name):
+
+        if not self.user_id: return None
+
         label = list(self.grab_dicts[controller_name]['total_count'].keys())
         data = list(self.grab_dicts[controller_name]['avg_look_time'].values())
 
@@ -204,6 +246,10 @@ class VisGraphs:
         return fig
 
     def plot_controller_grab_total(self, controller_name):
+
+        if not self.user_id: return None
+
+
         label = list(self.grab_dicts[controller_name]['total_count'].keys())
         time_data = list(self.grab_dicts[controller_name]['total_length_of_time'].values())
         count_data = list(self.grab_dicts[controller_name]['total_count'].values())
@@ -220,6 +266,10 @@ class VisGraphs:
         return fig
 
     def plot_box_controller_grab(self, controller_name):
+
+        if not self.user_id: return None
+
+
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
         for _, (obj, time_arr) in enumerate(self.grab_dicts[controller_name]['all_look_times'].items()):
             for time in time_arr:
@@ -232,6 +282,9 @@ class VisGraphs:
         return fig
 
     def plot_both_controller_grab(self):
+
+        if not self.user_id: return None, None, None
+
         avg_time = list(self.grab_dicts['LeftControllerGrab']['avg_look_time'].values())
         avg_time.extend(list(self.grab_dicts['RightControllerGrab']['avg_look_time'].values()))
 
@@ -269,6 +322,9 @@ class VisGraphs:
         return avg_fig, total_fig, box_fig
 
     def plot_gaze_avg(self):
+
+        if not self.user_id: return None
+
         label = list(self.gaze_dict['total_count'].keys())
         data = list(self.gaze_dict['avg_look_time'].values())
 
@@ -279,6 +335,9 @@ class VisGraphs:
         return fig        
 
     def plot_gaze_total(self):
+
+        if not self.user_id: return None
+
         label = list(self.gaze_dict['total_count'].keys())
         time_data = list(self.gaze_dict['total_length_of_time'].values())
         count_data = list(self.gaze_dict['total_count'].values())
@@ -294,6 +353,10 @@ class VisGraphs:
         return fig
 
     def plot_box_gaze(self):
+
+        if not self.user_id: return None
+
+
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
         for _, (obj, time_arr) in enumerate(self.gaze_dict['all_look_times'].items()):
             for time in time_arr:
@@ -304,10 +367,12 @@ class VisGraphs:
         fig.layout.title.text = "Box Plot: Duration of Gaze at Object"
         return fig
 
-if __name__ == '__main__':
-    controller_csv = 'test123_ControllerPointData.csv'
-    grab_csv = 'test123_ControllerGrabData.csv'
-    gaze_csv = 'test123_GazeData.csv'
-    vg = VisGraphs(controller_csv, grab_csv, gaze_csv)
-    vg.plot_controller_grab_avg("LeftControllerGrab")
+    # def plot_pos_heatmap(self):
+
+# if __name__ == '__main__':
+#     controller_csv = 'test123_ControllerPointData.csv'
+#     grab_csv = 'test123_ControllerGrabData.csv'
+#     gaze_csv = 'test123_GazeData.csv'
+#     vg = VisGraphs(controller_csv, grab_csv, gaze_csv)
+#     vg.plot_controller_grab_avg("LeftControllerGrab")
 
