@@ -77,14 +77,6 @@ gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, N
 user_id_list = getUserIDList()
 vis_graph = VisGraphs(None, point_data, grab_data, gaze_data, pos_data)
 
-# l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
-# both_controller_point_avg, both_controller_point_total, both_controller_point_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
-
-# l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box  = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
-
-# b_grab_avg, b_grab_total, b_grab_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
-
-# gaze_avg, gaze_total, gaze_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
 
 
 app.layout = html.Div(
@@ -112,7 +104,8 @@ app.layout = html.Div(
                             multi = False,
                             className="dcc_control",
                             style={"marginBottom": "25px", "marginLeft": "5px", "marginRight": "20px"},
-                            options=user_id_list
+                            options=user_id_list,
+                            placeholder="Select the user ID",
                         ),
                         html.Div(
                             id = "cur_user_id",
