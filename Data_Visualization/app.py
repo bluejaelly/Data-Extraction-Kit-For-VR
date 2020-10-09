@@ -33,6 +33,7 @@ app = dash.Dash(
 server = app.server
 
 DATA_DIRECTORY = os.getcwd() + '/data'
+DEFAULT_GRAPH = {'data': [], 'layout': {}}
 
 ####################
 # helper functions #
@@ -76,14 +77,14 @@ gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, N
 user_id_list = getUserIDList()
 vis_graph = VisGraphs(None, point_data, grab_data, gaze_data, pos_data)
 
-l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box = None, None, None, None, None, None
-both_controller_point_avg, both_controller_point_total, both_controller_point_box = None, None, None
+# l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
+# both_controller_point_avg, both_controller_point_total, both_controller_point_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
 
-l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box  = None, None, None, None, None, None
+# l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box  = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
 
-b_grab_avg, b_grab_total, b_grab_box = None, None, None
+# b_grab_avg, b_grab_total, b_grab_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
 
-gaze_avg, gaze_total, gaze_box = None, None, None
+# gaze_avg, gaze_total, gaze_box = DEFAULT_GRAPH, DEFAULT_GRAPH, DEFAULT_GRAPH
 
 
 app.layout = html.Div(
@@ -131,13 +132,13 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=gaze_avg)
+                                                        dcc.Graph(id="gaze_avg")
                                                     ],
                                                     className="one-half column"
                                                 ),
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=gaze_total)
+                                                        dcc.Graph(id="gaze_total")
                                                     ],
                                                     className="one-half column"
                                                 ),
@@ -146,7 +147,7 @@ app.layout = html.Div(
                                         ),
                                         html.Div(
                                             [
-                                                dcc.Graph(figure=gaze_box)
+                                                dcc.Graph(id="gaze_box")
                                             ],
                                             className = "row flex_display",
                                         )
@@ -160,30 +161,13 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=l_controller_point_avg)
+                                                        dcc.Graph(id="l_controller_point_avg")
                                                     ],
                                                     className="one-half column"
                                                 ),
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=r_controller_point_avg)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                            ],
-                                            className = "row flex_display",
-                                        ),
-                                        html.Div(
-                                            [
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=l_controller_point_total)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=r_controller_point_total)
+                                                        dcc.Graph(id="r_controller_point_avg")
                                                     ],
                                                     className="one-half column"
                                                 ),
@@ -194,30 +178,13 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=l_controller_point_box)
+                                                        dcc.Graph(id="l_controller_point_total")
                                                     ],
                                                     className="one-half column"
                                                 ),
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=r_controller_point_box)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                            ],
-                                            className = "row flex_display",
-                                        ),
-                                        html.Div(
-                                            [
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=both_controller_point_avg)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=both_controller_point_total)
+                                                        dcc.Graph(id="r_controller_point_total")
                                                     ],
                                                     className="one-half column"
                                                 ),
@@ -228,7 +195,41 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=both_controller_point_box)
+                                                        dcc.Graph(id="l_controller_point_box")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="r_controller_point_box")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                            ],
+                                            className = "row flex_display",
+                                        ),
+                                        html.Div(
+                                            [
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="both_controller_point_avg")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="both_controller_point_total")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                            ],
+                                            className = "row flex_display",
+                                        ),
+                                        html.Div(
+                                            [
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="both_controller_point_box")
                                                     ],
                                                     className="one-half column"
                                                 )
@@ -245,30 +246,13 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=l_grab_avg)
+                                                        dcc.Graph(id="l_grab_avg")
                                                     ],
                                                     className="one-half column"
                                                 ),
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=r_grab_avg)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                            ],
-                                            className = "row flex_display",
-                                        ),
-                                        html.Div(
-                                            [
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=l_grab_total)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=r_grab_total)
+                                                        dcc.Graph(id="r_grab_avg")
                                                     ],
                                                     className="one-half column"
                                                 ),
@@ -279,30 +263,13 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=l_grab_box)
+                                                        dcc.Graph(id="l_grab_total")
                                                     ],
                                                     className="one-half column"
                                                 ),
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=r_grab_box)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                            ],
-                                            className = "row flex_display",
-                                        ),
-                                        html.Div(
-                                            [
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=b_grab_avg)
-                                                    ],
-                                                    className="one-half column"
-                                                ),
-                                                html.Div(
-                                                    [
-                                                        dcc.Graph(figure=b_grab_total)
+                                                        dcc.Graph(id="r_grab_total")
                                                     ],
                                                     className="one-half column"
                                                 ),
@@ -313,7 +280,41 @@ app.layout = html.Div(
                                             [
                                                 html.Div(
                                                     [
-                                                        dcc.Graph(figure=b_grab_box)
+                                                        dcc.Graph(id="l_grab_box")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="r_grab_box")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                            ],
+                                            className = "row flex_display",
+                                        ),
+                                        html.Div(
+                                            [
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="b_grab_avg")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="b_grab_total")
+                                                    ],
+                                                    className="one-half column"
+                                                ),
+                                            ],
+                                            className = "row flex_display",
+                                        ),
+                                        html.Div(
+                                            [
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(id="b_grab_box")
                                                     ],
                                                     className="one-half column"
                                                 )
@@ -339,7 +340,37 @@ app.layout = html.Div(
 
 @app.callback(Output("cur_user_id", "children"), [Input("user_id", "value")])
 def updateCurrentUserID(user_id):
-    print(user_id)
+    return user_id
+
+@app.callback(
+    [
+        Output("l_controller_point_avg", "figure"),
+        Output("r_controller_point_avg", "figure"),
+        Output("l_controller_point_total", "figure"),
+        Output("r_controller_point_total", "figure"),
+        Output("l_controller_point_box", "figure"),
+        Output("r_controller_point_box", "figure"),
+        Output("both_controller_point_avg", "figure"),
+        Output("both_controller_point_total", "figure"),
+        Output("both_controller_point_box", "figure"),
+        Output("l_grab_avg", "figure"),
+        Output("r_grab_avg", "figure"),
+        Output("l_grab_total", "figure"),
+        Output("r_grab_total", "figure"),
+        Output("l_grab_box", "figure"),
+        Output("r_grab_box", "figure"),
+        Output("b_grab_avg", "figure"),
+        Output("b_grab_total", "figure"),
+        Output("b_grab_box", "figure"),
+        Output("gaze_avg", "figure"),
+        Output("gaze_total", "figure"),
+        Output("gaze_box", "figure")        
+    ],
+    [
+        Input("cur_user_id", "children")
+    ]
+)
+def updateGraphs(user_id):
     gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, user_id)
     vis_graph.update_data(user_id, point_data, grab_data, gaze_data, pos_data)
 
@@ -363,7 +394,8 @@ def updateCurrentUserID(user_id):
     gaze_total = vis_graph.plot_gaze_total()
     gaze_box = vis_graph.plot_box_gaze()
 
-    return user_id
+    return l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box, both_controller_point_avg, both_controller_point_total, both_controller_point_box, l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box, b_grab_avg, b_grab_total, b_grab_box, gaze_avg, gaze_total, gaze_box
+
 
 if __name__ == "__main__": 
     app.run_server(debug = True)

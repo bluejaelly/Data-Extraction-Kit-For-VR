@@ -144,7 +144,7 @@ class VisGraphs:
     
     def plot_controller_point_avg(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
         label = list(self.controllers_dicts[controller_name]['total_count'].keys())
         data = list(self.controllers_dicts[controller_name]['avg_look_time'].values())
 
@@ -157,7 +157,7 @@ class VisGraphs:
 
     def plot_controller_point_total(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
         label = list(self.controllers_dicts[controller_name]['total_count'].keys())
         time_data = list(self.controllers_dicts[controller_name]['total_length_of_time'].values())
@@ -176,7 +176,7 @@ class VisGraphs:
 
     def plot_box_controller_point(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
 
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
@@ -192,7 +192,7 @@ class VisGraphs:
 
     def plot_both_controller_point(self):
 
-        if not self.user_id: return None, None, None
+        if not self.user_id: return {'data': [], 'layout': {}}, {'data': [], 'layout': {}}, {'data': [], 'layout': {}}
 
 
         avg_time = list(self.controllers_dicts['LeftControllerPoint']['avg_look_time'].values())
@@ -233,7 +233,7 @@ class VisGraphs:
 
     def plot_controller_grab_avg(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
         label = list(self.grab_dicts[controller_name]['total_count'].keys())
         data = list(self.grab_dicts[controller_name]['avg_look_time'].values())
@@ -247,7 +247,7 @@ class VisGraphs:
 
     def plot_controller_grab_total(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
 
         label = list(self.grab_dicts[controller_name]['total_count'].keys())
@@ -267,7 +267,7 @@ class VisGraphs:
 
     def plot_box_controller_grab(self, controller_name):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
 
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
@@ -283,7 +283,7 @@ class VisGraphs:
 
     def plot_both_controller_grab(self):
 
-        if not self.user_id: return None, None, None
+        if not self.user_id: return {'data': [], 'layout': {}}, {'data': [], 'layout': {}}, {'data': [], 'layout': {}}
 
         avg_time = list(self.grab_dicts['LeftControllerGrab']['avg_look_time'].values())
         avg_time.extend(list(self.grab_dicts['RightControllerGrab']['avg_look_time'].values()))
@@ -323,7 +323,7 @@ class VisGraphs:
 
     def plot_gaze_avg(self):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
         label = list(self.gaze_dict['total_count'].keys())
         data = list(self.gaze_dict['avg_look_time'].values())
@@ -336,7 +336,7 @@ class VisGraphs:
 
     def plot_gaze_total(self):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
         label = list(self.gaze_dict['total_count'].keys())
         time_data = list(self.gaze_dict['total_length_of_time'].values())
@@ -354,7 +354,7 @@ class VisGraphs:
 
     def plot_box_gaze(self):
 
-        if not self.user_id: return None
+        if not self.user_id: return {'data': [], 'layout': {}}
 
 
         df = pd.DataFrame(columns=['Objects', 'Point Time'])
