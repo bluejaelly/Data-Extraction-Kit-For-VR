@@ -70,6 +70,13 @@ def getUserIDList():
     user_dir_list = [i.rsplit('/', 1)[-1] for i in user_dir_list]
     return [{'label': s, 'value': s} for s in user_dir_list]
 
+def timeParser(t):
+    if t < 60:
+        return str(round(t, 1)) + ' sec'
+    elif t < 3600:
+        return str(round(t / 60, 1)) + ' min'
+    return str(round(t / 3600, 1)) + ' hr'
+
 
 # import all datasets
 
@@ -318,6 +325,14 @@ app.layout = html.Div(
                                 )  
                             ]),
                             dcc.Tab(label='Player Position', value='position', className="custom-tab", style={"backgroundColor":"#e6e6e6"}, children=[
+                                html.Div([
+                                    html.Header("Heatmap Start Point", style={"marginLeft": "20px", "marginBottom": "10px"}),
+                                    dcc.Slider(id = 'start-time', included = True)
+                                    ], style={"marginBottom": "20px"}),
+                                html.Div([
+                                    html.Header("Heatmap end Point", style={"marginLeft": "20px", "marginBottom": "10px"}),
+                                    dcc.Slider(id = 'end-time', included = True)
+                                    ], style={"marginBottom": "20px"}),
                                 dcc.Graph(id="position-heatmap", responsive=True, config={'displaylogo': False, 'responsive':True}, style={"height" : "100%", "width" : "100%"})
                             ]),
                         ]),
@@ -389,6 +404,24 @@ def updateGraphs(user_id):
 
     return l_controller_point_avg, r_controller_point_avg, l_controller_point_total, r_controller_point_total, l_controller_point_box, r_controller_point_box, both_controller_point_avg, both_controller_point_total, both_controller_point_box, l_grab_avg, r_grab_avg, l_grab_total, r_grab_total, l_grab_box, r_grab_box, b_grab_avg, b_grab_total, b_grab_box, gaze_avg, gaze_total, gaze_box
 
+
+@app.callback([Output('start-time', 'min'), Output('start-time', 'max'), Output('start-time', 'value'), Output('start-time', 'marks'),  
+Output('end-time', 'min'), Output('end-time', 'max'), Output('end-time', 'marks')], 
+[Input('cur_user_id', 'children')])
+def updateTimeSlider(user_id):
+    gaze_data, point_data, grab_data, pos_data = importAllDatasets(DATA_DIRECTORY, user_id)
+    if pos_data is None: return None, None, None, {}, None, None, {}
+    min_val = pos_data['Time'].iloc[0]
+    max_val = pos_data['Time'].iloc[-1]
+    marks = {min_val: {'label':timeParser(min_val)}, max_val: {'label':timeParser(max_val)}}
+    return min_val, max_val, min_val, marks, min_val, max_val, marks
+
+# @app.callback([Output('end-time', 'min'), Output('end-time', 'value'), Output('end-time', 'marks')], [Input('start-time', 'value')])
+# @app.callback([Output('end-time', 'value')], [Input('start-time', 'value')])
+# def updateEndTimeSlider(t):
+#     print(t)
+#     if t is None: return []
+#     return t
 
 if __name__ == "__main__": 
     app.run_server(debug = True)
